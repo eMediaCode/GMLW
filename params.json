@@ -1,0 +1,86 @@
+{
+
+  "input_train_dataset": "/LC/data/train.csv",
+  "input_valid_dataset": "/LC/data/valid.csv",
+  "raw_dataset": "/LC/data/*.csv",
+
+  "model_dump_svm": "/LC/workflow/model_dump_svm.pkl",
+  "model_dump_logistic": "/LC/workflow/model_dump_logistic.pkl",
+  "model_dump_lasso": "/LC/workflow/model_dump_lasso.pkl",
+  "model_dump_ridge": "/LC/workflow/model_dump_ridge.pkl",
+  "model_dump_knn": "/LC/workflow/model_dump_knn.pkl",
+  "model_dump_Dtree": "/LC/workflow/model_dump_Dtree.pkl",
+  "model_dump_RF": "/LC/workflow/model_dump_RF.pkl",
+  "model_dump_xgboost": "/LC/workflow/model_dump_RF.pkl",
+  "model_dump_Adaboost": "/LC/workflow/model_dump_Adaboost.pkl",
+  "model_dump_GBM": "/LC/workflow/model_dump_GBM.pkl",
+  "model_dump_bagging": "/LC/workflow/model_dump_bagging.pkl",
+
+  "is_cv_req": -1,
+  "cv_folds": 5,
+  "standardization": 1,
+  "Normalization": -1,
+  "Binarize_variables":["colnames list"],
+  "Encode_categorical_variables":["colnames list"],
+  "encoder_dump": "/LC/workflow/encoder_dump.pkl",
+  "binarizer_dump": "/LC/workflow/binarizer_dump.pkl",
+
+  "class_variable": "loan_status",
+
+
+  "splitting_criterion": "stratrified",
+  "splitting_column": "issue_d",
+
+  "is_svm":1,
+  "SVM_C":[0.001, 0.01, 1, 5 ,10, 100],
+  "gamma": "np.logspace(-9, 3, 13)",
+
+  "is_rf": 1,
+  "max_depth_rf":[3,None],
+	"max_features_rf":sp_randint(1,11),
+	"min_samples_split_rf":sp_randint(1,11),
+	"min_samples_leaf_rf":sp_randint(1,11),
+	"bootstrap_rf":[True,False],
+	"criterion_rf":["gini","entropy"],
+
+  "is_gbm":1,
+  "n_estimators_gbm":[50,100,150,200],
+	"max_depth_gbm":[3,None],
+	"max_features_gbm":sp_randint(1,11),
+	"max_leaf_nodes_gbm":sp_randint(3,11),
+	"min_samples_leaf_gbm":sp_randint(1,11),
+	"min_samples_split_gbm":sp_randint(1,11),
+	"learning_rate_gbm":np.arange(0.1,0.6,0.1),
+	"min_weight_fraction_leaf_gbm":np.arange(0,0.6,0.1),
+
+  "is_bag": 1,
+  "max_features_bag":sp_randint(1,12),
+	"bootstrap_bag":[True,False],
+	"bootstrap_features_bag":[False,True],
+
+  "is_xgb": 1,
+  "n_estimators_xgb": [100, 250, 500, 1000],
+  "eta_xgb": [0.01,0.015,0.025,0.05,0.1],
+  "max_depth_xgb": [3, 5 , 7, 9 , 12 , 15 ,17 , 25],
+  "gamma_xgb":[0.05,0.1,0.3,0.5,0.7,0.9,1.0],
+  "min_child_weight_xgb":[1, 3, 5, 7],
+  "lambda_xgb":[0.01, 0.1, 1.0],
+  "alpha_xgb":[0, 0.1, 0.5, 1.0],
+  "subsample_xgb": [0.6,0.7,0.8,0.9,1.0],
+  "colsample_bytree_xgb": [0.6,0.7,0.8,0.9,1.0],
+
+  "is_lasso":1,
+  "alpha_lasso": [0.1, 1.0, 10],
+  "normalize_lasso": [True, False],
+
+  "is_ridge":1,
+  "alpha_ridge": [0.01, 0.1, 1.0, 10, 100],
+  "fit_intercept_ridge": [ True, False],
+  "normalize_ridge": [ True, False],
+
+  "is_knn":1,
+  "n_neighbours_ridge": [2 , 4, 8 , 16],
+
+  "is_logistic":1,
+  "is_naive_bayes":1
+}
