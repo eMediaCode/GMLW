@@ -10,6 +10,12 @@ from models.tree import tree_cp, tree_cp_cv, rf_cp, rf_cp_cv, gbm_cp, gbm_cp_cv
 from models.xgboost import xgb_cp, xgb_cp_cv
 from grids import at_grid
 
+
+######## CREATE A models_dump FOLDER IN THE PRESENT LOCATION #######
+import os
+if not os.path.exists("models_dump"):
+    os.makedirs("models_dump")
+
 ########### LOAD THE PARAM FILE ##############
 print("[INFO] Loading the params file")
 import json
@@ -17,7 +23,7 @@ with open("params.json") as datafile:
      params = json.load(datafile)
 
 print("[INFO] Loading Data")
-X_dev = pd.read_csv(params["/LC/data/train.csv"])
+X_dev = pd.read_csv(params["input_train_dataset"])
 
 ############# LOGISTIC REGRESSION ###########
 if params["is_logistic"] > 0:

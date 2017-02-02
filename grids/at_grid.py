@@ -1,4 +1,4 @@
-import math 
+import math
 
 ########### LOAD THE PARAM FILE ##############
 print("[INFO] Loading the params file")
@@ -11,11 +11,6 @@ print("[INFO] params loaded")
 
 if parmas["which_grid"] >0:
     print("[INFO] Grid Search params are loading ...")
-    svm_grid = {
-    "C":[0.001, 0.01, 1, 5 ,10, 100],
-    "gamma": np.logspace(-9, 3, 13),
-    "class_weight"=["Balanced", None]
-    }
 
     tree_grid = {
     "max_depth": np.arange(3, 10)
@@ -55,3 +50,7 @@ if parmas["which_grid"] >0:
     "n_neighbours": [2 , 4, 8 , 16],
     "p": [2, 3]
     }
+
+    svm_grid= [{'kernel': ['rbf'], 'gamma': [1e-3, 1e-4],
+                     'C': [1, 10, 100, 1000]},
+                    {'kernel': ['linear'], 'C': [1, 10, 100, 1000]}]
